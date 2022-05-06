@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hdfcbank/ws/OTPVerification" targetNamespace="http://hdfcbank/ws/OTPVerification" elementFormDefault="qualified">
+   <xs:element name="verifyOneTimePasswordRequest">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="arg0">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="bankCode" type="xs:unsignedByte" />
+                     <xs:element name="channel" type="xs:string" />
+                     <xs:element name="externalReferenceNo" type="xs:unsignedInt" />
+                     <xs:element name="transactingPartyCode" type="xs:unsignedInt" />
+                     <xs:element name="userReferenceNumber" type="xs:unsignedLong" />
+                     <xs:element name="transactionBranch" type="xs:unsignedInt" />
+                     <xs:element name="userId" type="xs:string" />
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+            <xs:element name="arg1">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="authAllowed" />
+                     <xs:element name="callerId" type="xs:string" />
+                     <xs:element name="expiryMinutes" />
+                     <xs:element name="fillerField1" />
+                     <xs:element name="fillerField2" />
+                     <xs:element name="fillerField3" />
+                     <xs:element name="fillerField4" />
+                     <xs:element name="fillerField5" />
+                     <xs:element name="instanceId" type="xs:string" />
+                     <xs:element name="linkData" type="xs:unsignedInt" />
+                     <xs:element name="maxAttempts" />
+                     <xs:element name="messageHash" type="xs:string" />
+                     <xs:element name="password" type="xs:unsignedInt" />
+                     <xs:element name="passwordCategory" />
+                     <xs:element name="passwordLength" />
+                     <xs:element name="passwordMask" />
+                     <xs:element name="referenceNo" type="xs:unsignedInt" />
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="verifyOneTimePasswordResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="return">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="status" type="tns:status" />
+                     <xs:element name="fillerField1" />
+                     <xs:element name="fillerField2" />
+                     <xs:element name="fillerField3" />
+                     <xs:element name="fillerField4" />
+                     <xs:element name="fillerField5" />
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="status">
+      <xs:sequence>
+         <xs:element name="errorCode" type="xs:string" />
+         <xs:element name="extendedReply" type="xs:string" />
+         <xs:element name="externalReferenceNo" type="xs:string" />
+         <xs:element name="internalReferenceNumber" type="xs:string" />
+         <xs:element name="isOverriden" type="xs:string" />
+         <xs:element name="postingDate" type="xs:string"/>           	     
+         <xs:element name="replyCode" type="xs:string" />
+         <xs:element name="replyText" type="xs:string" />
+         <xs:element name="userReferenceNumber" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType> 
+   
+</xs:schema>
