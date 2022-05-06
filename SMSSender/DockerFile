@@ -1,0 +1,4 @@
+FROM openjdk:11-jre-buster
+
+COPY target/SMSSender-0.0.1-SNAPSHOT.jar smssender.jar
+ENTRYPOINT ["java","-jar","/smssender.jar"]

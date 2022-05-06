@@ -1,0 +1,46 @@
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://hdfcbank/ws/SMSSender"
+           targetNamespace="http://hdfcbank/ws/SMSSender" elementFormDefault="qualified">
+	<xs:element name="SMSRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userid" type="xs:string" />
+				<xs:element name="password" type="xs:string" />
+				<xs:element name="ctype" type="xs:string" />
+				<xs:element name="sender" type="xs:string" />
+				<xs:element name="mobilenumber" type="xs:string" />
+				<xs:element name="msgtxt" type="xs:string" />
+				<xs:element name="departmentcode" type="xs:string" />
+				<xs:element name="submitdate" type="xs:date" />
+				<xs:element name="author"  type="xs:string"/>
+				<xs:element name="subAuthor"  type="xs:string"/>
+				<xs:element name="broadcastname" type="xs:string" />
+				<xs:element name="internationalflag" type="xs:integer" />
+				<xs:element name="msgid" type="xs:integer" />
+				<xs:element name="drlflag" type="xs:integer" />
+				<xs:element name="dndalert" type="xs:integer"/>
+				<xs:element name="msgtype" type="xs:string" />
+				<xs:element name="priority" type="xs:integer"/>
+				<xs:element name="filler_1" type="xs:string"/>
+				<xs:element name="filler_2" type="xs:string"/>
+				<xs:element name="filler_3" type="xs:string"/>
+				<xs:element name="filler_4" type="xs:string"/>
+				<xs:element name="filler_5" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SMSResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="responsecode" type="xs:string"/>
+				<xs:element name="message" type="xs:string"/>
+				<xs:element name="filler_1" type="xs:string"/>
+				<xs:element name="filler_2" type="xs:string"/>
+				<xs:element name="filler_3" type="xs:string"/>
+				<xs:element name="filler_4" type="xs:string"/>
+				<xs:element name="filler_5" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
