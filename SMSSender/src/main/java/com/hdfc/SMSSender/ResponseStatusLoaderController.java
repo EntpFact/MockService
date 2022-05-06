@@ -18,8 +18,7 @@ public class ResponseStatusLoaderController {
 	 * {{put("errorDetail",""); put("messageHash",""); put("refNo","");
 	 * put("statusCode",""); put("datatimeGen",""); put("datetimeExpire","");
 	 * put("passwordValue",""); put("fillerField1",""); put("fillerField2","");
-	 * put("fillerField3",""); put("fillerField4",""); put("fillerField5",""); }};
-	 */
+	 * put("fillerField3",""); put("fillerField4",""); put("fillerField5",""); }};	 */
 	
 	@PostMapping("/ResponseStatus-Update")
     public ResponseEntity<?> mockhit(@RequestBody HashMap request)      
