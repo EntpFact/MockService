@@ -1,0 +1,4 @@
+FROM openjdk:11-jre-buster
+
+COPY target/Aadhar-0.0.1-SNAPSHOT.jar mockadhar1.jar
+ENTRYPOINT ["java","-jar","/mockadhar1.jar"]
