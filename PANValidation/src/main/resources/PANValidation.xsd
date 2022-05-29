@@ -1,0 +1,56 @@
+   <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://hdfcbank/ws/PANVal" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/" xmlns:archxsd="http://hdfcbank/ws/PANVal" xmlns:tns="http://hdfcbank/ws/PANVal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        
+         <xsd:complexType name="PAN_DETAILS_TYPE">
+            <xsd:sequence>
+               <xsd:element maxOccurs="1" minOccurs="1" name="PAN" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="1" name="PAN_Status" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Last_Name" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="First_Name" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Middle_Name" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="PAN_Title" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Last_Update_Date" type="xsd:date"/>               
+            </xsd:sequence>
+         </xsd:complexType>
+              <xsd:element name="PANValServiceResponse" type="tns:PANValServiceResponseType"/>
+        <xsd:complexType name="PANValServiceResponseType">
+            <xsd:sequence>
+               <xsd:element maxOccurs="1" minOccurs="1" name="Return_Code" type="xsd:integer"/>
+               <xsd:element maxOccurs="1" minOccurs="1" name="Return_Description" type="xsd:string"/>
+               <xsd:element maxOccurs="5" minOccurs="0" name="PAN_Details" type="tns:PAN_DETAILS_TYPE"/>
+               <xsd:element maxOccurs="1" minOccurs="1" name="ResponseTime" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler1" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler2" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler3" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler4" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler5" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+		
+        
+	 <xsd:complexType name="PANValServiceRequestType">
+            <xsd:sequence>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Service_User" nillable="false" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Service_Password" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="1" name="Consumer_Name" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="1" name="NSDL_User_Name" type="xsd:string"/>
+               <xsd:element maxOccurs="5" minOccurs="1" name="PAN">
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[a-zA-Z0-9]{10}"/>
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:element>
+               <xsd:element maxOccurs="1" minOccurs="1" name="Req_Date_Time" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="1" name="Req_No" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="1" name="Cost_Center_No" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="1" name="Filler1" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler2" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler3" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler4" type="xsd:string"/>
+               <xsd:element maxOccurs="1" minOccurs="0" name="Filler5" type="xsd:string"/>
+            </xsd:sequence>
+                     </xsd:complexType>
+	   
+		 <xsd:element name="PANValServiceRequest" type="tns:PANValServiceRequestType"/>   
+      </xsd:schema>   
+  
