@@ -1,4 +1,4 @@
-package com.hdfc.SMSSender;
+package com.hdfc.ef.SMSSender;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,46 +1,41 @@
-<xs:schema
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:tns="http://hdfcbank/ws/SMSSender"
-           targetNamespace="http://hdfcbank/ws/SMSSender" elementFormDefault="qualified">
-	<xs:element name="SMSRequest">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="userid" type="xs:string" />
-				<xs:element name="password" type="xs:string" />
-				<xs:element name="ctype" type="xs:string" />
-				<xs:element name="sender" type="xs:string" />
-				<xs:element name="mobilenumber" type="xs:string" />
-				<xs:element name="msgtxt" type="xs:string" />
-				<xs:element name="departmentcode" type="xs:string" />
-				<xs:element name="submitdate" type="xs:date" />
-				<xs:element name="author"  type="xs:string"/>
-				<xs:element name="subAuthor"  type="xs:string"/>
-				<xs:element name="broadcastname" type="xs:string" />
-				<xs:element name="internationalflag" type="xs:integer" />
-				<xs:element name="msgid" type="xs:integer" />
-				<xs:element name="drlflag" type="xs:integer" />
-				<xs:element name="dndalert" type="xs:integer"/>
-				<xs:element name="msgtype" type="xs:string" />
-				<xs:element name="priority" type="xs:integer"/>
-				<xs:element name="filler_1" type="xs:string"/>
-				<xs:element name="filler_2" type="xs:string"/>
-				<xs:element name="filler_3" type="xs:string"/>
-				<xs:element name="filler_4" type="xs:string"/>
-				<xs:element name="filler_5" type="xs:string"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="SMSResponse">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="responsecode" type="xs:string"/>
-				<xs:element name="message" type="xs:string"/>
-				<xs:element name="filler_1" type="xs:string"/>
-				<xs:element name="filler_2" type="xs:string"/>
-				<xs:element name="filler_3" type="xs:string"/>
-				<xs:element name="filler_4" type="xs:string"/>
-				<xs:element name="filler_5" type="xs:string"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-</xs:schema>
+  <xsd:schema targetNamespace="http://www.hdfcbank.com/SMSService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.hdfcbank.com/SMSService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="SMSRequest" type="tns:RequestType"/>
+      <xsd:element name="SMSResponse" type="tns:ResponseType"/>
+      <xsd:complexType name="RequestType">
+        <xsd:sequence>
+          <xsd:element name="userid" type="xsd:string"/>
+          <xsd:element name="password" type="xsd:string"/>
+          <xsd:element name="ctype" type="xsd:string"/>
+          <xsd:element name="sender" type="xsd:string"/>
+          <xsd:element name="mobilenumber" type="xsd:string"/>
+          <xsd:element name="msgtxt" type="xsd:string"/>
+          <xsd:element name="departmentcode" type="xsd:string"/>
+          <xsd:element name="submitdate" type="xsd:string"/>
+          <xsd:element name="author" type="xsd:string"/>
+          <xsd:element name="subAuthor" type="xsd:string"/>
+          <xsd:element name="broadcastname" type="xsd:string"/>
+          <xsd:element name="internationalflag" type="xsd:string"/>
+          <xsd:element name="msgid" type="xsd:string"/>
+          <xsd:element name="drlflag" type="xsd:string"/>
+          <xsd:element name="dndalert" type="xsd:string"/>
+          <xsd:element name="msgtype" type="xsd:string"/>
+          <xsd:element name="priority" type="xsd:string"/>
+          <xsd:element name="filler_1" type="xsd:string"/>
+          <xsd:element name="filler_2" type="xsd:string"/>
+          <xsd:element name="filler_3" type="xsd:string"/>
+          <xsd:element name="filler_4" type="xsd:string"/>
+          <xsd:element name="filler_5" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseType">
+        <xsd:sequence>
+          <xsd:element name="responsecode" type="xsd:string"/>
+          <xsd:element name="message" type="xsd:string"/>
+          <xsd:element name="filler_1" type="xsd:string"/>
+          <xsd:element name="filler_2" type="xsd:string"/>
+          <xsd:element name="filler_3" type="xsd:string"/>
+          <xsd:element name="filler_4" type="xsd:string"/>
+          <xsd:element name="filler_5" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>

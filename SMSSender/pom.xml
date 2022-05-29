@@ -87,7 +87,7 @@
 					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
 					<clearOutputDir>false</clearOutputDir>
 					<sources>
-                    <source>${project.basedir}/src/main/resources/SMSSender.xsd</source>                  
+                    <source>${project.basedir}/src/main/resources/SMSSender.xsd</source> 
                 </sources>
 				</configuration>
 			</plugin>
