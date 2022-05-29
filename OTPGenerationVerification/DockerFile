@@ -1,0 +1,4 @@
+FROM openjdk:11-jre-buster
+
+COPY target/OTPGenerationVerification-0.0.1-SNAPSHOT.jar mockotpgenverify.jar
+ENTRYPOINT ["java","-jar","/mockotpgenverify.jar"]
