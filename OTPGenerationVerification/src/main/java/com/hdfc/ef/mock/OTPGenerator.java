@@ -14,14 +14,10 @@ import com.enstagesas.enstageotpservice.hdfc.HDFCGenPwdRes;
 
 @Component
 public class OTPGenerator { 
-	@Autowired
-	ResponseLoaderController responseLoaderController;
 	
- static  GeneratePwdRequestResponse otpgenreturn=new GeneratePwdRequestResponse();
-	public GeneratePwdRequestResponse findOTP(GeneratePwdRequest request) {	
-		System.out.println("Inside otp generator method");
-		Map<String, String> OTPGenResponse=new HashMap();
-		OTPGenResponse=responseLoaderController.OTPGenResponse;	
+	static Map<String, String> OTPGenResponse=new HashMap();
+	public static GeneratePwdRequestResponse findOTP(GeneratePwdRequest request) {	
+		GeneratePwdRequestResponse otpgenreturn=new GeneratePwdRequestResponse();		
 		HDFCGenPwdRes response = new HDFCGenPwdRes();
 		 Random rndm_method = new Random();      
     	 String OTP=Integer.toString(rndm_method.nextInt(999999));    	 	
@@ -29,7 +25,7 @@ public class OTPGenerator {
     	 response.setFillerField1("");response.setFillerField2("");response.setFillerField3("");
     	 response.setFillerField4("");response.setFillerField5("");response.setMessageHash("");
     	 response.setPasswordValue("0");response.setRefNo(request.getHDFCGenPwdReq().getRefNo());response.setStatusCode("");    	 
-    	 System.out.println("before response");
+    	
     	 if(OTPGenResponse.isEmpty() ) {
     		 response.setPasswordValue(OTP);
         	 response.setStatusCode("00");          	 
@@ -53,5 +49,8 @@ public class OTPGenerator {
     	 otpgenreturn.setHDFCGenPwdRes(response);
     	 
 		return otpgenreturn;
+	}
+	public void responseUpdate(Map<String,String> map) {
+		OTPGenResponse=map;
 	}
 }

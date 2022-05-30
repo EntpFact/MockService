@@ -1,5 +1,6 @@
 package com.hdfc.ef.mock;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,34 +12,33 @@ import com.enstagesas.enstageotpservice.hdfc.VerifyPwdRequest;
 import com.enstagesas.enstageotpservice.hdfc.VerifyPwdRequestResponse;
 import com.enstagesas.enstageotpservice.hdfc.VerifyPwdRequestReturn;
 
+
 @Component
 public class OTPVerifier {
-	@Autowired
-	ResponseLoaderController responseLoaderController;
-	 
-public static  VerifyPwdRequestReturn otpVerification(VerifyPwdRequest request) {
-	Map<String, String> mapVerificationResponse=new HashMap();
-//	mapVerificationResponse=responseLoaderController.mapResponse;	
+	
+	 public static Map<String, String> mapResponse= new HashMap<>(); 
+	 public static  VerifyPwdRequestReturn otpVerification(VerifyPwdRequest request) {
+	
 	VerifyPwdRequestReturn verifyResponse=new VerifyPwdRequestReturn();	
 	HDFCVerifyPwdRes response = new HDFCVerifyPwdRes();	 
-	 if(mapVerificationResponse.isEmpty() ) {
+	 if(mapResponse.isEmpty() ) {
 		 response.setStatusCode("00");
 		 response.setErrorDetail("Success");		
 		 response.setRefNo(request.getHDFCVerifyPwdReq().getRefNo());
 		 response.setMessageHash("static:verpwdres:04:l8ZOuSZY3eQ3Mcx2zfBH6cR7ICU=");
-	 }else if (mapVerificationResponse.get("status").contentEquals("success")) {
-		 response.setStatusCode(mapVerificationResponse.get("responseCode"));
-		 response.setErrorDetail(mapVerificationResponse.get("responseDesc"));   
+	 }else if (mapResponse.get("status").contentEquals("success")) {
+		 response.setStatusCode(mapResponse.get("responseCode"));
+		 response.setErrorDetail(mapResponse.get("responseDesc"));   
 		 response.setRefNo(request.getHDFCVerifyPwdReq().getRefNo());
 		 response.setMessageHash("static:verpwdres:04:l8ZOuSZY3eQ3Mcx2zfBH6cR7ICU=");
-	 }else if(mapVerificationResponse.get("status").contentEquals("failure")){
-		 response.setStatusCode(mapVerificationResponse.get("responseCode"));
-		 response.setErrorDetail(mapVerificationResponse.get("responseDesc")); 
+	 }else if(mapResponse.get("status").contentEquals("failure")){
+		 response.setStatusCode(mapResponse.get("responseCode"));
+		 response.setErrorDetail(mapResponse.get("responseDesc")); 
 		 response.setRefNo(request.getHDFCVerifyPwdReq().getRefNo());
 		 response.setMessageHash("static:verpwdres:04:l8ZOuSZY3eQ3Mcx2zfBH6cR7ICU=");
-	 }else if(mapVerificationResponse.get("status").contentEquals("exception")){
+	 }else if(mapResponse.get("status").contentEquals("exception")){
 		 throw new RuntimeException();
-	 }else if(mapVerificationResponse.get("status").contentEquals("timeout")){
+	 }else if(mapResponse.get("status").contentEquals("timeout")){
 		try {
 			Thread.sleep(1800000);
 		} catch (InterruptedException e) {
@@ -49,5 +49,8 @@ public static  VerifyPwdRequestReturn otpVerification(VerifyPwdRequest request) 
 	 verifyResponse.setHDFCVerifyPwdRes(response);
 	return verifyResponse;
 	
+}
+public void responseUpdate(Map<String,String> map) {
+	mapResponse=map;
 }
 }
