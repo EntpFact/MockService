@@ -1,0 +1,61 @@
+  
+<xsd:schema targetNamespace="http://www.hdfcbank.com/OTPService/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.hdfcbank.com/OTPService/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="generatePwdRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="HDFCGenPwdReq" type="tns:HDFCGenPwdReq"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="HDFCGenPwdReq">
+		<xsd:sequence>
+			<xsd:element name="callerId" nillable="true" type="xsd:string" />
+			<xsd:element name="instanceId" nillable="true" type="xsd:string" />
+			<xsd:element name="linkData" nillable="true" type="xsd:string" />
+			<xsd:element name="messageHash" nillable="true" type="xsd:string" />
+			<xsd:element name="refNo" nillable="true" type="xsd:string" />
+			<xsd:element name="authenticationsAllowed" type="xsd:int" />
+			<xsd:element name="expiryMin" type="xsd:int" />
+			<xsd:element name="maxAttempts" type="xsd:int" />
+			<xsd:element name="customerEmailId" nillable="true" type="xsd:string" />
+			<xsd:element name="customerMobileNo" nillable="true" type="xsd:string" />
+			<xsd:element name="passwordCategory" nillable="true" type="xsd:string" />
+			<xsd:element name="passwordLength" type="xsd:int" />
+			<xsd:element name="passwordMask" nillable="true" type="xsd:string" />
+			<xsd:element name="forceNew" type="xsd:boolean" />
+			<xsd:element name="fillerField1" nillable="true" type="xsd:string" />
+			<xsd:element name="fillerField2" nillable="true" type="xsd:string" />
+			<xsd:element name="fillerField3" nillable="true" type="xsd:string" />
+			<xsd:element name="fillerField4" nillable="true" type="xsd:string" />
+			<xsd:element name="fillerField5" nillable="true" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="generatePwdRequestResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="HDFCGenPwdRes" type="tns:HDFCGenPwdRes"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="HDFCGenPwdRes">
+		<xsd:sequence>
+			<xsd:element name="errorDetail" nillable="true" type="xsd:string"/>
+			<xsd:element name="messageHash" nillable="true" type="xsd:string"/>
+			<xsd:element name="refNo" nillable="true" type="xsd:string"/>
+			<xsd:element name="statusCode" nillable="true" type="xsd:string"/>
+			<xsd:element name="datatimeGen" nillable="true" type="xsd:string"/>
+			<xsd:element name="datetimeExpire" nillable="true" type="xsd:string"/>
+			<xsd:element name="passwordValue" nillable="true" type="xsd:string"/>
+			<xsd:element name="fillerField1" nillable="true" type="xsd:string"/>
+			<xsd:element name="fillerField2" nillable="true" type="xsd:string"/>
+			<xsd:element name="fillerField3" nillable="true" type="xsd:string"/>
+			<xsd:element name="fillerField4" nillable="true" type="xsd:string"/>
+			<xsd:element name="fillerField5" nillable="true" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>
