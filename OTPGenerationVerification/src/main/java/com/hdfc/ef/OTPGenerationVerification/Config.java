@@ -30,6 +30,7 @@ public class Config extends WsConfigurerAdapter {
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema OTPSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("OTPGeneratorPort");
+		wsdl11Definition.setServiceName("OTPGenerator");
 		wsdl11Definition.setLocationUri("/ws/OTPGenerator");
 		wsdl11Definition.setTargetNamespace("http://www.hdfcbank.com/OTPService/");
 		wsdl11Definition.setSchema(OTPSchema);
@@ -44,6 +45,7 @@ public class Config extends WsConfigurerAdapter {
 	public DefaultWsdl11Definition VerificationWsdl11Definition(XsdSchema VerificationSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("OTPValidationPort");
+		wsdl11Definition.setServiceName("OTPValidation");
 		wsdl11Definition.setLocationUri("/ws/OTPValidator");
 		wsdl11Definition.setTargetNamespace("http://www.hdfcbank.com/OTPValidation/");
 		wsdl11Definition.setSchema(VerificationSchema);

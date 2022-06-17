@@ -1,13 +1,13 @@
-  
-<xsd:schema targetNamespace="http://www.hdfcbank.com/OTPService/"
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 	xmlns:tns="http://www.hdfcbank.com/OTPService/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.hdfcbank.com/OTPService/">
 	<xsd:element name="generatePwdRequest">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="HDFCGenPwdReq" type="tns:HDFCGenPwdReq"/>
+				<xsd:element name="HDFCGenPwdReq" type="tns:HDFCGenPwdReq" />
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -34,13 +34,18 @@
 			<xsd:element name="fillerField5" nillable="true" type="xsd:string" />
 		</xsd:sequence>
 	</xsd:complexType>
-	<xsd:element name="generatePwdRequestResponse">
+		<xsd:element name="generatePwdRequestResponse">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="HDFCGenPwdRes" type="tns:HDFCGenPwdRes"/>
+				<xsd:element name="generatePwdRequestReturn" type="tns:generatePwdRequestReturn"/>
 			</xsd:sequence>
 		</xsd:complexType>
-	</xsd:element>
+	</xsd:element>	
+	<xsd:complexType name="generatePwdRequestReturn">
+		<xsd:sequence>
+			<xsd:element name="HDFCGenPwdRes" type="tns:HDFCGenPwdRes"/>
+		</xsd:sequence>		
+		</xsd:complexType>
 	<xsd:complexType name="HDFCGenPwdRes">
 		<xsd:sequence>
 			<xsd:element name="errorDetail" nillable="true" type="xsd:string"/>
@@ -57,5 +62,4 @@
 			<xsd:element name="fillerField5" nillable="true" type="xsd:string"/>
 		</xsd:sequence>
 	</xsd:complexType>
-	
 </xsd:schema>

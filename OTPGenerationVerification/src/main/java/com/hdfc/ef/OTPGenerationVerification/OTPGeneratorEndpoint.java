@@ -4,10 +4,12 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
 import com.hdfcbank.otpservice.GeneratePwdRequest;
 import com.hdfcbank.otpservice.GeneratePwdRequestResponse;
 import com.hdfcbank.otpvalidation.VerifyPwdRequest;
-import com.hdfcbank.otpvalidation.VerifyPwdRequestReturn;
+import com.hdfcbank.otpvalidation.VerifyPwdRequestResponse;
+
 
 @Endpoint
 public class OTPGeneratorEndpoint {
@@ -23,7 +25,7 @@ public class OTPGeneratorEndpoint {
 	
 	@PayloadRoot(namespace = NAMESPACE_VAL, localPart = "verifyPwdRequest")
 	@ResponsePayload	
-		public	VerifyPwdRequestReturn generateOTP(@RequestPayload VerifyPwdRequest request){
+		public	VerifyPwdRequestResponse generateOTP(@RequestPayload VerifyPwdRequest request){
 			
 		return OTPVerifier.otpVerification(request);
 	}

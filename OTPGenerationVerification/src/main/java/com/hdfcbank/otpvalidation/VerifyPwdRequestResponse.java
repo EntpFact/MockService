@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="HDFCVerifyPwdReq" type="{http://www.hdfcbank.com/OTPValidation/}HDFCVerifyPwdReq"/&gt;
+ *         &lt;element name="verifyPwdRequestReturn" type="{http://www.hdfcbank.com/OTPValidation/}verifyPwdRequestReturn"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "hdfcVerifyPwdReq"
+    "verifyPwdRequestReturn"
 })
-@XmlRootElement(name = "verifyPwdRequest")
-public class VerifyPwdRequest {
+@XmlRootElement(name = "verifyPwdRequestResponse")
+public class VerifyPwdRequestResponse {
 
-    @XmlElement(name = "HDFCVerifyPwdReq", required = true)
-    protected HDFCVerifyPwdReq hdfcVerifyPwdReq;
+    @XmlElement(required = true)
+    protected VerifyPwdRequestReturn verifyPwdRequestReturn;
 
     /**
-     * Gets the value of the hdfcVerifyPwdReq property.
+     * Gets the value of the verifyPwdRequestReturn property.
      * 
      * @return
      *     possible object is
-     *     {@link HDFCVerifyPwdReq }
+     *     {@link VerifyPwdRequestReturn }
      *     
      */
-    public HDFCVerifyPwdReq getHDFCVerifyPwdReq() {
-        return hdfcVerifyPwdReq;
+    public VerifyPwdRequestReturn getVerifyPwdRequestReturn() {
+        return verifyPwdRequestReturn;
     }
 
     /**
-     * Sets the value of the hdfcVerifyPwdReq property.
+     * Sets the value of the verifyPwdRequestReturn property.
      * 
      * @param value
      *     allowed object is
-     *     {@link HDFCVerifyPwdReq }
+     *     {@link VerifyPwdRequestReturn }
      *     
      */
-    public void setHDFCVerifyPwdReq(HDFCVerifyPwdReq value) {
-        this.hdfcVerifyPwdReq = value;
+    public void setVerifyPwdRequestReturn(VerifyPwdRequestReturn value) {
+        this.verifyPwdRequestReturn = value;
     }
 
 }

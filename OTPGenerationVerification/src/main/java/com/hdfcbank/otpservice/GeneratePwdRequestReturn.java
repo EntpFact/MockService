@@ -6,26 +6,25 @@
 //
 
 
-package com.hdfcbank.otpvalidation;
+package com.hdfcbank.otpservice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for generatePwdRequestReturn complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="generatePwdRequestReturn"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="HDFCVerifyPwdReq" type="{http://www.hdfcbank.com/OTPValidation/}HDFCVerifyPwdReq"/&gt;
+ *         &lt;element name="HDFCGenPwdRes" type="{http://www.hdfcbank.com/OTPService/}HDFCGenPwdRes"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,37 +34,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "hdfcVerifyPwdReq"
+@XmlType(name = "generatePwdRequestReturn", propOrder = {
+    "hdfcGenPwdRes"
 })
-@XmlRootElement(name = "verifyPwdRequest")
-public class VerifyPwdRequest {
+public class GeneratePwdRequestReturn {
 
-    @XmlElement(name = "HDFCVerifyPwdReq", required = true)
-    protected HDFCVerifyPwdReq hdfcVerifyPwdReq;
+    @XmlElement(name = "HDFCGenPwdRes", required = true)
+    protected HDFCGenPwdRes hdfcGenPwdRes;
 
     /**
-     * Gets the value of the hdfcVerifyPwdReq property.
+     * Gets the value of the hdfcGenPwdRes property.
      * 
      * @return
      *     possible object is
-     *     {@link HDFCVerifyPwdReq }
+     *     {@link HDFCGenPwdRes }
      *     
      */
-    public HDFCVerifyPwdReq getHDFCVerifyPwdReq() {
-        return hdfcVerifyPwdReq;
+    public HDFCGenPwdRes getHDFCGenPwdRes() {
+        return hdfcGenPwdRes;
     }
 
     /**
-     * Sets the value of the hdfcVerifyPwdReq property.
+     * Sets the value of the hdfcGenPwdRes property.
      * 
      * @param value
      *     allowed object is
-     *     {@link HDFCVerifyPwdReq }
+     *     {@link HDFCGenPwdRes }
      *     
      */
-    public void setHDFCVerifyPwdReq(HDFCVerifyPwdReq value) {
-        this.hdfcVerifyPwdReq = value;
+    public void setHDFCGenPwdRes(HDFCGenPwdRes value) {
+        this.hdfcGenPwdRes = value;
     }
 
 }

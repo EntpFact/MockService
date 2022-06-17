@@ -1,55 +1,56 @@
-  
-
-<xsd:schema targetNamespace="http://www.hdfcbank.com/OTPValidation/"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns1="http://www.hdfcbank.com/OTPValidation/"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<xsd:element name="verifyPwdRequest">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns1="http://www.hdfcbank.com/OTPValidation/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.hdfcbank.com/OTPValidation/">
+   <xsd:element name="verifyPwdRequest">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="HDFCVerifyPwdReq" type="tns1:HDFCVerifyPwdReq" />
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="HDFCVerifyPwdReq">
+      <xsd:sequence>
+         <xsd:element name="callerId" nillable="true" type="xsd:string" />
+         <xsd:element name="instanceId" nillable="true" type="xsd:string" />
+         <xsd:element name="linkData" nillable="true" type="xsd:string" />
+         <xsd:element name="messageHash" nillable="true" type="xsd:string" />
+         <xsd:element name="refNo" nillable="true" type="xsd:string" />
+         <xsd:element name="authenticationsAllowed" type="xsd:int" />
+         <xsd:element name="expiryMin" type="xsd:int" />
+         <xsd:element name="maxAttempts" type="xsd:int" />
+         <xsd:element name="passwordValue" nillable="true" type="xsd:string" />
+         <xsd:element name="passwordCategory" nillable="true" type="xsd:string" />
+         <xsd:element name="passwordLength" type="xsd:int" />
+         <xsd:element name="passwordMask" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField2" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField3" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField4" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField5" nillable="true" type="xsd:string" />
+      </xsd:sequence>
+   </xsd:complexType>   
+   	<xsd:element name="verifyPwdRequestResponse">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="HDFCVerifyPwdReq" type="tns1:HDFCVerifyPwdReq"/>
+				<xsd:element name="verifyPwdRequestReturn" type="tns1:verifyPwdRequestReturn"/>
 			</xsd:sequence>
 		</xsd:complexType>
-	</xsd:element>
-	<xsd:complexType name="HDFCVerifyPwdReq">
+	</xsd:element>	
+	<xsd:complexType name="verifyPwdRequestReturn">
 		<xsd:sequence>
-			<xsd:element name="callerId" nillable="true" type="xsd:string" />
-			<xsd:element name="instanceId" nillable="true" type="xsd:string" />
-			<xsd:element name="linkData" nillable="true" type="xsd:string" />
-			<xsd:element name="messageHash" nillable="true" type="xsd:string" />
-			<xsd:element name="refNo" nillable="true" type="xsd:string" />
-			<xsd:element name="authenticationsAllowed" type="xsd:int" />
-			<xsd:element name="expiryMin" type="xsd:int" />
-			<xsd:element name="maxAttempts" type="xsd:int" />
-			<xsd:element name="passwordValue" nillable="true" type="xsd:string" />
-			<xsd:element name="passwordCategory" nillable="true" type="xsd:string" />
-			<xsd:element name="passwordLength" type="xsd:int" />
-			<xsd:element name="passwordMask" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField2" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField3" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField4" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField5" nillable="true" type="xsd:string" />
-		</xsd:sequence>
-	</xsd:complexType>
-	<xsd:element name="verifyPwdRequestReturn">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="HDFCVerifyPwdRes" type="tns1:HDFCVerifyPwdRes"></xsd:element>
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-	<xsd:complexType name="HDFCVerifyPwdRes">
-		<xsd:sequence>
-			<xsd:element name="errorDetail" nillable="true" type="xsd:string" />
-			<xsd:element name="messageHash" nillable="true" type="xsd:string" />
-			<xsd:element name="refNo" nillable="true" type="xsd:string" />
-			<xsd:element name="statusCode" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField1" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField2" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField3" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField4" nillable="true" type="xsd:string" />
-			<xsd:element name="fillerField5" nillable="true" type="xsd:string" />
-		</xsd:sequence>
-	</xsd:complexType>
+			<xsd:element name="HDFCVerifyPwdRes" type="tns1:HDFCVerifyPwdRes"/>
+		</xsd:sequence>		
+		</xsd:complexType>	
+   <xsd:complexType name="HDFCVerifyPwdRes">
+      <xsd:sequence>
+         <xsd:element name="errorDetail" nillable="true" type="xsd:string" />
+         <xsd:element name="messageHash" nillable="true" type="xsd:string" />
+         <xsd:element name="refNo" nillable="true" type="xsd:string" />
+         <xsd:element name="statusCode" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField1" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField2" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField3" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField4" nillable="true" type="xsd:string" />
+         <xsd:element name="fillerField5" nillable="true" type="xsd:string" />
+      </xsd:sequence>
+   </xsd:complexType> 
+     
 </xsd:schema>

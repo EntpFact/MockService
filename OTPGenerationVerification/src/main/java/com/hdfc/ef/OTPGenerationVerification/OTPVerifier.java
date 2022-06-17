@@ -7,13 +7,16 @@ import org.springframework.stereotype.Component;
 
 import com.hdfcbank.otpvalidation.HDFCVerifyPwdRes;
 import com.hdfcbank.otpvalidation.VerifyPwdRequest;
+import com.hdfcbank.otpvalidation.VerifyPwdRequestResponse;
 import com.hdfcbank.otpvalidation.VerifyPwdRequestReturn;
+
 
 @Component
 public class OTPVerifier {
 	
-	 public static  VerifyPwdRequestReturn otpVerification(VerifyPwdRequest request) {
+	 public static  VerifyPwdRequestResponse otpVerification(VerifyPwdRequest request) {
 		 Map<String, String> mapResponse= ResponseLoaderController.mapResponse;
+		 VerifyPwdRequestResponse reqResponse=new VerifyPwdRequestResponse();
 	VerifyPwdRequestReturn verifyResponse=new VerifyPwdRequestReturn();	
 	HDFCVerifyPwdRes response = new HDFCVerifyPwdRes();	 
 	 if(mapResponse.isEmpty() ) {
@@ -42,7 +45,8 @@ public class OTPVerifier {
 		}
 	 }
 	 verifyResponse.setHDFCVerifyPwdRes(response);
-	return verifyResponse;
+	 reqResponse.setVerifyPwdRequestReturn(verifyResponse);
+	return reqResponse;
 	
 }
 
