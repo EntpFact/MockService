@@ -12,11 +12,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ResponseStatusLoaderController {
-//	SpringBootSoapServiceApplication app=new SpringBootSoapServiceApplication();
+
 	public static Map<String, String> mapResponse= new HashMap<>(); 
 
 	@PostMapping("/PANDetails/ResponseStatus-Update")
     public ResponseEntity<?> mockhit(@RequestBody HashMap request)      
+    {  
+		System.out.println("Response: "+request.toString());		
+		mapResponse=(HashMap<String, String>) request.clone();
+	    return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+	
+	@PostMapping("/ETBCheckRequest/ResponseStatus-Update")
+    public ResponseEntity<?> ETBCheckResponseUpdate(@RequestBody HashMap request)      
+    {  
+		System.out.println("Response: "+request.toString());		
+		mapResponse=(HashMap<String, String>) request.clone();
+	    return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+	@PostMapping("/DedupeCheckRequest/ResponseStatus-Update")
+    public ResponseEntity<?> DedupeCheckResponseUpdate(@RequestBody HashMap request)      
+    {  
+		System.out.println("Response: "+request.toString());		
+		mapResponse=(HashMap<String, String>) request.clone();
+	    return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+	@PostMapping("/EnquireBureauRequest/ResponseStatus-Update")
+    public ResponseEntity<?> EnquireBureauResponseUpdate(@RequestBody HashMap request)      
     {  
 		System.out.println("Response: "+request.toString());		
 		mapResponse=(HashMap<String, String>) request.clone();

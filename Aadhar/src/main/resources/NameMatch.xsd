@@ -1,0 +1,84 @@
+<xsd:schema attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://uidaiekyc.addMatch.xsd.hdfcbank.com" 
+xmlns="http://www.w3.org/2001/XMLSchema"
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/" 
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:archxsd="http://uidaiekyc.addMatch.xsd.hdfcbank.com" 
+ xmlns:tns="http://uidaiekyc.addMatch.xsd.hdfcbank.com" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      
+      <xsd:element name="doAddressMatchPercentageRequest">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="arg0" type="tns:SessionContext"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="arg1" type="tns:AddressMatchPercentage"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      </xsd:element>  
+      <xsd:complexType name="SessionContext">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Bankcode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Channel" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="brnPostingDateText" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="electronicJournalOperationType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="externalBatchNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="externalSystemAuditTrailNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="localDateTimeText" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="originalReferenceNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="overridenWarnings" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="postingDateText" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="reason" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Servicecode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sessionTicket" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="supervisorContext" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="TransactionBranch" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Userid" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="userReferenceNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="valueDateText" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>        
+      <xsd:complexType name="AddressMatchPercentage">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="srcName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="trgName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="srcAddress" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="trgAddress" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="srcEquality" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="trgEquality" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="srcPhone" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="trgPhone" type="xsd:string"/>
+       </xsd:sequence>
+      </xsd:complexType>  
+      <xsd:element name="doAddressMatchPercentageResponse">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="return" type="tns:returnType"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="namePercentage" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="addressPercentage" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="equalityPercentage" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="phonePercentage" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="perStatus" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="remarks" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      </xsd:element>   
+       <xsd:complexType name="returnType">
+        <xsd:sequence>
+        	<xsd:element maxOccurs="1" minOccurs="1" name="status" type="tns:StatusType"/>
+        </xsd:sequence>
+      </xsd:complexType> 
+       <xsd:complexType name="StatusType">
+        <xsd:sequence>
+        	<xsd:element maxOccurs="1" minOccurs="1" name="ErrorCode" type="xsd:string"/>
+        	<xsd:element maxOccurs="1" minOccurs="1" name="ExtendedReply" type="xsd:string"/>
+        	<xsd:element maxOccurs="1" minOccurs="1" name="ReplyCode" type="xsd:string"/>
+        	<xsd:element maxOccurs="1" minOccurs="1" name="ReplyText" type="xsd:string"/>
+        	<xsd:element maxOccurs="1" minOccurs="1" name="UserReferenceNumber" type="xsd:string"/>
+        	<xsd:element maxOccurs="1" minOccurs="1" name="externalReferenceNo" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>     
+    </xsd:schema>

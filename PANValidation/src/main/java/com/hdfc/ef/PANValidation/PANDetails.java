@@ -24,14 +24,14 @@ import org.json.*;
 @Component
 public class PANDetails {
 
-	static PANValServiceResponseType rep=new PANValServiceResponseType();
-	
+	static PANValServiceResponseType rep=new PANValServiceResponseType();	
 	
 	public static PANValServiceResponse PANDetails(PANValServiceRequest request) {	
 		 PANValServiceResponse response=new PANValServiceResponse();
 		PANDETAILSTYPE PANDet1 =new PANDETAILSTYPE();		
 		ArrayList PAN =new ArrayList();
-		 Map<String, String> mapResponse= ResponseStatusLoaderController.mapResponse;	
+		 //Map<String, String> mapResponse= ResponseStatusLoaderController.mapResponse;	
+		 Map<String, String> mapResponse= new HashMap<String, String>();	
 		 Date date = new Date();
 	     Timestamp timestamp = new Timestamp(date.getTime());
 		response.setResponseTime(timestamp.toString());

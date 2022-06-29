@@ -1,0 +1,237 @@
+ <xsd:schema attributeFormDefault="unqualified" 
+ elementFormDefault="unqualified" 
+ targetNamespace="multibureau.xsd.hdfcbank.com" 
+ xmlns="http://www.w3.org/2001/XMLSchema" 
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/" 
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:archxsd="multibureau.xsd.hdfcbank.com" 
+ xmlns:tns="multibureau.xsd.hdfcbank.com" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <xsd:complexType name="soaStandard">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="service_user" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="service_password" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="consumer_name" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="unique_id" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="time_stamp" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="soaFillers">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler4" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler5" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CommunicationParamType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="AGGREGATOR_ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="INSTITUTION_ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="MEMBER_ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="PASSWORD" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MultiBureauServiceRequest">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="CommunicationParam" type="tns:CommunicationParamType"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="REQUEST" type="tns:RequestType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaStandard" type="tns:soaStandard"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaFillers" type="tns:soaFillers"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="RequestType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="HEADER" type="tns:HeaderType"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="REQUEST-DATA" type="tns:RequestDataType"/>
+          <!-- New Changes-->
+          <xsd:element maxOccurs="1" minOccurs="1" name="RESPONSE-FORMAT" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HeaderType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="APPLICATION-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="CUST-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="REQUEST-TYPE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="REQUEST-TIME" type="xsd:string"/>
+          <!-- New Changes-->
+          <xsd:element maxOccurs="1" minOccurs="1" name="SOURCE-SYSTEM" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RequestDataType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PRIORITY" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PRODUCT_TYPE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="LOAN-TYPE" type="xsd:string"/>
+          <!-- New Changes-->
+          <xsd:element maxOccurs="1" minOccurs="0" name="LOAN-AMOUNT" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="JOINT_IND" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="INQUIRY-SUBMITTED-BY" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SOURCE-SYSTEM-NAME" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOURCE-SYSTEM-VERSION" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOURCE-SYSTEM-VENDER" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOURCE-SYSTEM-INSTANCE-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="BUREAU-REGION" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="LOAN-PURPOSE-DESC" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BRANCH-IFSCCODE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="KENDRA" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="INQUIRY-STAGE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AUTHRIZATION-FLAG" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AUTHROIZED-BY" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="INDIVIDUAL-CORPORATE-FLAG" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CONSTITUTION" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="NAME" type="tns:NameType"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="GENDER" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MARITAL-STATUS" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RELATION" type="tns:RelationType"/>
+          <!-- New Changes-->
+          <xsd:element maxOccurs="1" minOccurs="1" name="AGE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AGE-AS-ON-DT" type="xsd:string"/>
+          <!-- New Changes-->
+          <xsd:element maxOccurs="1" minOccurs="0" name="BIRTH-DT" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NO-OF-DEPENDENTS" type="xsd:string"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="ADDRESS" type="tns:AddressType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="tns:IdType"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="PHONE" type="tns:PhoneType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="EMAIL-ID-1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="EMAIL-ID-2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ALIAS" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ACT-OPENING-DT" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ACCOUNT-NUMBER-1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ACCOUNT-NUMBER-2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ACCOUNT-NUMBER-3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ACCOUNT-NUMBER-4" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="TENURE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="GROUP-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NUMBER-CREDIT-CARDS" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CREDIT-CARD-NO" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MONTHLY-INCOME" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOA-EMPLOYER-NAME-C" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="TIME-WITH-EMPLOY" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="COMPANY-CATEGORY" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NATURE-OF-BUSINESS" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ASSET-COST" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="COLLATERAL-1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="COLLATERAL-1-VALUATION-1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="COLLATERAL-1-VALUATION-2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="COLLATERAL-2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="COLLATERAL-2-VALUATION-1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="COLLATERAL-2-VALUATION-2" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="NameType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="NAME-1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NAME-2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NAME-3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NAME-4" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NAME-5" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RelationType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="FATHER-NAME" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SPOUSE-NAME" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MOTHER-NAME" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RELATION-TYPE-1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RELATION-TYPE-1-VALUE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RELATION-TYPE-2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RELATION-TYPE-2-VALUE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="KEY-PERSON-NAME" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="KEY-PERSON-RELATION" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NOMINEE-NAME" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NOMINEE-RELATION-TYPE" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AddressType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ADDRESS-TYPE" type="xsd:string"/>
+          <!-- New Changes-->
+          <xsd:element maxOccurs="1" minOccurs="0" name="ADDRESS-RESIDENCE-CODE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ADDRESS" type="xsd:string"/>
+          <!-- New Changes-->
+          <xsd:element maxOccurs="1" minOccurs="1" name="ADDRESS-CITY" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ADDRESS-PIN" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ADDRESS-STATE" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IdType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PAN-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PAN-ISSUE-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PAN-EXPIRATION-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PASSPORT-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PASSPORT-ISSUE-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PASSPORT-EXPIRATION-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VOTER-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VOTER-ID-ISSUE-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VOTER-ID-EXPIRATION-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DRIVING-LICENSE-NO" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DRIVER-LICENSE-ISSUE-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DRIVER-LICENSE-EXPIRATION-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="UID-NO" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="UNIVERSAL-ID-ISSUE-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="UNIVERSAL-ID-EXPIRATION-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RATION-CARD" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RATION-CARD-ISSUE-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RATION-CARD-EXPIRATION-DATE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ID-TYPE-1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ID-TYPE-1-VALUE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ID-TYPE-2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ID-TYPE-2-VALUE" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PhoneType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PHONE-TYPE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PHONE-NUMBER" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PHONE-EXTN" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="STD-CODE" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="MultiBureauServiceResponse">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="CommunicationParam" type="tns:CommunicationParamType"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ACKNOWLEDGEMENT" type="tns:AcknowledgementType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AcknowledgementType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="HEADER" type="tns:AckHeaderType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ACKNOWLEDGEMENT-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="STATUS" type="xsd:string"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="WARNINGS" type="tns:WarningsType"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="ERRORS" type="tns:ErrorsType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AckHeaderType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="APPLICATION-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CUST-ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RESPONSE-TYPE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="REQUEST-RECEIVED-TIME" type="xsd:string"/>
+          <!-- New Changes-->
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOURCE-SYSTEM" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="WarningsType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CODE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DESCRIPTION" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ErrorsType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CODE" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DESCRIPTION" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>   
+    </xsd:schema>

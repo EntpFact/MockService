@@ -1,4 +1,4 @@
 FROM openjdk:11-jre-buster
 
-COPY target/PANValidation-0.0.1-SNAPSHOT.jar mockpanfetch.jar
-ENTRYPOINT ["java","-jar","/mockpanfetch.jar"]
+COPY target/PANValidation-0.0.1-SNAPSHOT.jar mockpanservice.jar
+ENTRYPOINT ["java","-jar","/mockpanservice.jar"]

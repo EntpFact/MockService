@@ -36,7 +36,8 @@
           <xsd:element maxOccurs="1" minOccurs="0" name="info" type="xsd:string"/>
         </xsd:sequence>
       </xsd:complexType>
-    <xsd:complexType name="eKYCOTPGenrateResponseType">
+      <xsd:element name="eKYCOTPGenrateResponse">
+    <xsd:complexType>
         <xsd:sequence>
           <xsd:element maxOccurs="1" minOccurs="0" name="Return_Code" type="tns:returnCodeType"/>
           <xsd:element maxOccurs="1" minOccurs="0" name="Return_Description" type="xsd:string"/>
@@ -49,7 +50,7 @@
           <xsd:element maxOccurs="1" minOccurs="0" name="errorcode" type="xsd:string"/>
         </xsd:sequence>
       </xsd:complexType>
-      <xsd:element name="eKYCOTPGenrateResponse" type="tns:eKYCOTPGenrateResponseType"/>
+      </xsd:element>     
       <xsd:complexType name="soastandarddtls">
         <xsd:sequence>
           <xsd:element maxOccurs="1" minOccurs="0" name="service_user" type="xsd:string"/>
@@ -83,7 +84,8 @@
           <xsd:element maxOccurs="1" minOccurs="0" name="CA_TA" type="xsd:string"/>
         </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="eKYCOTPGenrateRequestType">
+      <xsd:element name="eKYCOTPGenrateRequest">
+      <xsd:complexType>
         <xsd:sequence>
           <xsd:element maxOccurs="1" minOccurs="1" name="UID_NO" type="xsd:string"/>
           <xsd:element maxOccurs="1" minOccurs="0" name="OTP" type="tns:otpType"/>
@@ -102,6 +104,5 @@
           <xsd:element maxOccurs="1" minOccurs="0" name="SOAStandardElements" type="tns:soastandarddtls"/>
         </xsd:sequence>
       </xsd:complexType>
-      <xsd:element name="eKYCOTPGenrateRequest" type="tns:eKYCOTPGenrateRequestType"/>
-      
+      </xsd:element>      
     </xsd:schema>

@@ -1,0 +1,41 @@
+# Copyright 2019 HDFC BANK
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mockpanservice
+spec:
+  selector:
+    matchLabels:
+      app:  mockpanservice
+  template:
+    metadata:
+      labels:
+        app: mockpanservice
+    spec:
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: mockpanservice
+        image: 819563108174.dkr.ecr.us-east-2.amazonaws.com/hdfcb-ef-mum:mockpanservice
+        imagePullPolicy: Always        
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mockpanservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: mockpanservice
+  ports:
+  - name: http
+    port: 8081
+    targetPort: 8081

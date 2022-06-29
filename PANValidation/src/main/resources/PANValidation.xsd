@@ -1,4 +1,14 @@
-   <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://hdfcbank/ws/PANVal" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/" xmlns:archxsd="http://hdfcbank/ws/PANVal" xmlns:tns="http://hdfcbank/ws/PANVal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <xsd:schema attributeFormDefault="unqualified" 
+   elementFormDefault="unqualified" 
+   targetNamespace="http://hdfcbank/ws/PANVal" 
+   xmlns="http://www.w3.org/2001/XMLSchema" 
+   xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/" 
+   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+   xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"   
+   xmlns:tns="http://hdfcbank/ws/PANVal" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         
          <xsd:complexType name="PAN_DETAILS_TYPE">
             <xsd:sequence>

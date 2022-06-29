@@ -1,0 +1,333 @@
+ <xsd:schema attributeFormDefault="unqualified" 
+ elementFormDefault="unqualified" 
+ targetNamespace="http://hdfcbank/ws/DedupeCheck" 
+ xmlns="http://www.w3.org/2001/XMLSchema" 
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/" 
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" 
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:archxsd="http://hdfcbank/ws/DedupeCheck" 
+ xmlns:tns="http://hdfcbank/ws/DedupeCheck" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        jaxb:version="2.1">
+      <xsd:element name="EnquiryServiceResponse" >
+      <xsd:complexType>           
+            <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SourceSystem" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="RequestNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="MatchProfile" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="FactivaType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ClosedAccountType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SOACommonResponse" type="xsd:string"/>     
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaFillers" type="tns:soaFillers"/>     
+        </xsd:sequence>
+      </xsd:complexType>
+     </xsd:element>
+     <xsd:element name="EnquiryServiceRequest" >
+      <xsd:complexType>           
+          <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="HeaderInfo" type="tns:HeaderInfoType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="EnquiryInfo" type="tns:EnquiryInfoType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaStandard" type="tns:soaStandard"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaFillers" type="tns:soaFillers"/>              
+        </xsd:sequence>
+      </xsd:complexType>
+     </xsd:element>	  
+	   <xsd:complexType name="HeaderInfoType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SourceSystemName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="RequestNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AODNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CustomerCategory" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="RequestorUserID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="EnquiryDateTime" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="EnquiryBranch" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MatchProfile" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IPAddress" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MACAddress" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ErrorCode" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EnquiryInfoType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CustomerName" type="xsd:string"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Addresses" type="tns:AddressesType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DateOfBirth" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="EmailId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MobileNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="LandPhone" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PanNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="UID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOAFiller" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AddressesType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Address" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AddressType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="City" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="State" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Pincode" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="soaFillers">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler4" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filler5" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>    
+         <xsd:complexType name="soaStandard">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="service_user" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="service_password" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="consumer_name" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="unique_id" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="time_stamp" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType> 
+       <xsd:element name="getStatusRequest">
+       <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SourceSystem" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="RequestNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MatchProfile" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Type" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaFillers" type="tns:soaFillers"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      </xsd:element> 
+      <xsd:element name="getStatusServiceResponse">   
+       <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SourceSystem" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="RequestNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="MatchProfile" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Type" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="FactivaType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ClosedAccountType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SOACommonResponse" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaFillers" type="tns:soaFillers"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      </xsd:element>  
+       <xsd:element name="DedupeServiceRequest" >
+      <xsd:complexType>           
+          <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="HeaderInfo" type="tns:HeaderInfoType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="EnquiryInfo" type="tns:EnquiryInfoType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaStandard" type="tns:soaStandard"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="soaFillers" type="tns:soaFillers"/>              
+        </xsd:sequence>
+      </xsd:complexType>
+     </xsd:element> 
+     <xsd:element name="DedupeServiceResponse" >
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element name="HeaderInfo" type="tns:DedupeResponseHeaderInfoType"/>
+          <xsd:element name="EnquiryInfo" type="tns:DedupeResponseEnquiryInfoType"/>
+          <xsd:element name="Summary" type="tns:SummaryType"/>
+          <xsd:element name="Detail" type="tns:DetailType"/>
+          <xsd:element name="NegativeList" type="tns:NegativeListType"/>
+          <xsd:element name="ClosedAccSummary" type="tns:ClosedAccSummaryType"/>
+          <xsd:element name="ClosedAccMatch" type="tns:ClosedAccMatchType"/>
+          <xsd:element name="ClosedAccDetail" type="tns:ClosedAccDetailType"/>
+          <xsd:element name="soaFillers" type="tns:soaFillers"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      </xsd:element>
+       <xsd:complexType name="DedupeResponseHeaderInfoType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SourceSystemName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="RequestNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AODNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CustomerCategory" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="RequestorUserID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="EnquiryDateTime" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="EnquiryBranch" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MatchProfile" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IPAddress" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MACAddress" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOACommonResponse" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="FactivaResponseCode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ClosedAccountResponseCode" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DedupeResponseEnquiryInfoType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CustomerName" type="xsd:string"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Addresses" type="tns:AddressesType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DateOfBirth" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="EmailId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MobileNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="LandPhone" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PanNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="UID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOAFiller" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SummaryType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="FactivaMatch" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="NeglistMatch" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="MatchCombination" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Factiva" type="tns:MatchValueType"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="NegativeList" type="tns:MatchValueType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MatchParameterType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MatchParameterName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MatchParameterValue" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MatchValueType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="MatchParameter" type="tns:MatchParameterType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DetailType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Factiva" type="tns:MatchValueType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PersonEntityId" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Action" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Gender" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Deceased" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PersonStatus" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NameType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NameSubType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="TitleHonorific" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="FirstName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MiddleName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Surname" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Suffix" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Description1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Description2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Description3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RoleType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="OccupationCategory" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Title" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="OccupationSinceDay" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="OccupationSinceMonth" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="OccupationSinceYear" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="OccupationToDay" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="OccupationToMonth" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="OccupationToYear" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DateType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Day" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Month" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Year" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DateNotes" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PlaceOfBirth" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SanctionList" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SLRSinceDay" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SLRSinceMonth" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SLRSinceYear" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SLRToDay" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SLRToMonth" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SLRToYear" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Address" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="City" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Country" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="URL" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VesselCallSign" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VesselType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VesselTonnage" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VesselGRT" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VesselOwner" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VesselFlag" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CountryType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VesselCountry" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IdentificationType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IdentificationNumber" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IdentificationNotes" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SourceName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ProfileNotes" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Image" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RelatedPersonEntityID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Relationship" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IsEx" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AdditionDate" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="LastReviewedDate" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler4" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler5" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler6" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler7" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler8" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler9" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler10" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler11" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler12" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler13" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler14" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler15" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="NegativeListType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="NegativeList" type="tns:MatchValueType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="FirstName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="MiddleName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="LastName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DOB" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Address" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Mobile" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Pan" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ResiPhone" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Remarks" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Source" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler4" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler5" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler6" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler7" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler8" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler9" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Filler10" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClosedAccDetailType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="MatchParameter" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="UniqueRefNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="GroupID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="RecType" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="DedupeDate" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="AccNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AccOpenDate" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AccClosedDate" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Relationship" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CustomerID" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CustomerName" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AccBranchCode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AccProductCode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="LCCode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="LGCode" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ClosureReason" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOAFiller" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClosedAccSummaryType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ClosedAccMatch" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ClosedAcc" type="tns:MatchValueType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClosedAccMatchType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ClosedAccMatch" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ClosedAccMatchCombination" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>      
+    </xsd:schema>

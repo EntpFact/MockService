@@ -41,4 +41,34 @@ public class Config extends WsConfigurerAdapter {
 	public XsdSchema PANSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("/PANValidation.xsd"));
 	}
+	
+	@Bean(name = "DedupeCheckWsdl")
+	public DefaultWsdl11Definition dedupeWsdl11Definition(XsdSchema DedupeSchema) {
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		wsdl11Definition.setPortTypeName("DedupeCheck");
+		wsdl11Definition.setLocationUri("/ws/DedupeCheck");
+		wsdl11Definition.setTargetNamespace("http://hdfcbank/ws/DedupeCheck");
+		wsdl11Definition.setSchema(DedupeSchema);
+		return wsdl11Definition;
+	}	
+	
+	@Bean
+	public XsdSchema DedupeSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("/DedupeCheck.xsd"));
+	}
+	
+	@Bean(name = "EnquireBureauWsdl")
+	public DefaultWsdl11Definition EnquireBureauWsdl11Definition(XsdSchema EnquireBureauSchema) {
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		wsdl11Definition.setPortTypeName("EnquireBureau");
+		wsdl11Definition.setLocationUri("/ws/EnquireBureau");
+		wsdl11Definition.setTargetNamespace("multibureau.xsd.hdfcbank.com");
+		wsdl11Definition.setSchema(EnquireBureauSchema);
+		return wsdl11Definition;
+	}	
+	
+	@Bean
+	public XsdSchema EnquireBureauSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("/EnquireBureau.xsd"));
+	}
 }
